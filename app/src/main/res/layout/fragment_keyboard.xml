@@ -8,133 +8,145 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/keyboardRowHeight">
 
         <Button
             android:id="@+id/button1"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_1"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_2"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/button3"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_3"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/keyboardRowHeight">
 
         <Button
             android:id="@+id/button4"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_4"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/button5"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_5"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/button6"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_6"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/keyboardRowHeight">
 
         <Button
             android:id="@+id/button7"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_7"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/button8"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_8"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/button9"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_9"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/keyboardRowHeight">
 
         <Button
             android:id="@+id/button0"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_0"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/buttonDot"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/dot"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/buttonDelete"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/del"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/keyboardTextSize"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
