@@ -11,17 +11,17 @@ import androidx.fragment.app.activityViewModels
 
 class KeyboardFragment : Fragment(), View.OnClickListener {
 
-    private val viewModel: ViewModel by activityViewModels()
+    private val viewModel: MyViewModel by activityViewModels()
     private lateinit var service: Service
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         service = Service()
 
         val view =  inflater.inflate(R.layout.fragment_keyboard, container, false)
+
         view.findViewById<Button>(R.id.button0).setOnClickListener(this)
         view.findViewById<Button>(R.id.button1).setOnClickListener(this)
         view.findViewById<Button>(R.id.button2).setOnClickListener(this)
@@ -34,6 +34,7 @@ class KeyboardFragment : Fragment(), View.OnClickListener {
         view.findViewById<Button>(R.id.button9).setOnClickListener(this)
         view.findViewById<Button>(R.id.buttonDot).setOnClickListener(this)
         view.findViewById<Button>(R.id.buttonDelete).setOnClickListener(this)
+
         return view
     }
 
@@ -42,7 +43,13 @@ class KeyboardFragment : Fragment(), View.OnClickListener {
 
         when(button.id) {
             R.id.buttonDelete -> {
-
+                service.delClick(viewModel.value)
+            }
+            R.id.buttonDot -> {
+                service.dotClick(viewModel.value)
+            }
+            else -> {
+                service.numClick(viewModel.value, button.text.toString())
             }
         }
     }

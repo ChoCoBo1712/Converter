@@ -16,7 +16,7 @@
         app:menu="@menu/bottom_navigation"
         />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentValues"
         android:name="com.example.converter.ValuesFragment"
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentKeyboard"
         android:name="com.example.converter.KeyboardFragment"
         android:layout_width="match_parent"
