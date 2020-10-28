@@ -43,10 +43,18 @@ class KeyboardFragment : Fragment(), View.OnClickListener {
 
         when(button.id) {
             R.id.buttonDelete -> {
-                service.delClick(viewModel.value)
+                if (viewModel.value.value != "") {
+                    if (viewModel.value.value?.last() == '.') {
+                        viewModel.dot = viewModel.dot.xor(true) //change boolean value
+                    }
+                    service.delClick(viewModel.value)
+                }
             }
             R.id.buttonDot -> {
-                service.dotClick(viewModel.value)
+                if (!viewModel.dot) {
+                    service.dotClick(viewModel.value)
+                    viewModel.dot = viewModel.dot.xor(true) //change boolean value
+                }
             }
             else -> {
                 service.numClick(viewModel.value, button.text.toString())
