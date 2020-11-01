@@ -36,8 +36,8 @@
 
     <EditText
         android:id="@+id/editTextLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="55dp"
         android:autofillHints=""
         android:ems="5"
         android:focusableInTouchMode="false"
@@ -47,8 +47,8 @@
 
     <EditText
         android:id="@+id/editTextRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="55dp"
         android:autofillHints=""
         android:ems="5"
         android:focusableInTouchMode="false"

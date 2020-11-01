@@ -11,16 +11,16 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_values.*
 
 
-class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private val viewModel: MyViewModel by activityViewModels()
-    private lateinit var jsonService: JSONService
+    private lateinit var service: Service
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        jsonService = JSONService()
+        service = Service()
         val view =  inflater.inflate(R.layout.fragment_values, container, false)
 
         val editTextLeft = view.findViewById<EditText>(R.id.editTextLeft)
@@ -30,21 +30,25 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         viewModel.value.observe(viewLifecycleOwner, { newValue ->
             editTextLeft.setText(newValue)
-            jsonService.convert(viewModel.value.value!!.toDouble(), viewModel.list.value!!,
-                viewModel.item.value!!, viewModel.convertedItem.value!!)
+
+            convert()
         })
+
         viewModel.convertedValue.observe(viewLifecycleOwner, { newValue -> editTextRight.setText(newValue) })
+
         viewModel.list.observe(viewLifecycleOwner, { newValue ->
             val adapter = ArrayAdapter.createFromResource(requireActivity().applicationContext, viewModel.list.value!!, android.R.layout.simple_spinner_item)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
             spinnerLeft.adapter = adapter
             spinnerRight.adapter = adapter
-            jsonService.convert(viewModel.value.value!!.toDouble(), viewModel.list.value!!,
-                viewModel.item.value!!, viewModel.convertedItem.value!!)
+
+            convert()
         })
 
         val adapter = ArrayAdapter.createFromResource(requireActivity().applicationContext, viewModel.list.value!!, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
         spinnerLeft.adapter = adapter
         spinnerRight.adapter = adapter
 
@@ -60,11 +64,40 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
         viewModel.item.value = spinnerLeft.selectedItem.toString()
         viewModel.convertedItem.value = spinnerRight.selectedItem.toString()
-        jsonService.convert(viewModel.value.value!!.toDouble(), viewModel.list.value!!,
-            viewModel.item.value!!, viewModel.convertedItem.value!!)
+
+        convert()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+    fun convert() {
+        var valueToConvert = viewModel.value.value!!
+        if (valueToConvert.isNotEmpty()) {
+            if (valueToConvert[valueToConvert.length - 1] == '.') {
+                valueToConvert += '0'
+            }
+            viewModel.convertedValue.value = service.convert(viewModel.value.value!!.toDouble(), viewModel.list.value!!,
+                viewModel.item.value!!, viewModel.convertedItem.value!!).toString()
+        }
+        else {
+            viewModel.convertedValue.value = ""
+        }
+    }
+
+    override fun onClick(v: View?) {
+        val button = v as Button
+
+        when(button.id) {
+            R.id.imageButton -> {
+                viewModel.value.value = viewModel.convertedValue.value.also {
+                    viewModel.convertedValue.value = viewModel.value.value
+                }
+                viewModel.item.value = viewModel.convertedItem.value.also {
+                    viewModel.convertedItem.value = viewModel.item.value
+                }
+            }
+        }
+    }
 
     fun changeList(id: Int) {
         viewModel.list.value = id
