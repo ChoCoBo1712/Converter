@@ -99,13 +99,10 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
 
         when(button.id) {
             R.id.imageButton -> {
-                viewModel.value.value = viewModel.convertedValue.value.also {
-                    viewModel.convertedValue.value = viewModel.value.value
-                }
+                viewModel.value.value = viewModel.convertedValue.value
                 val temp = spinnerLeft.selectedItemPosition
-                spinnerLeft.setSelection(spinnerRight.selectedItemPosition).also {
-                    spinnerRight.setSelection(temp)
-                }
+                spinnerLeft.setSelection(spinnerRight.selectedItemPosition)
+                spinnerRight.setSelection(temp)
             }
         }
     }
