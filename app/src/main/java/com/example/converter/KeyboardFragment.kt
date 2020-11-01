@@ -12,13 +12,13 @@ import androidx.fragment.app.activityViewModels
 class KeyboardFragment : Fragment(), View.OnClickListener {
 
     private val viewModel: MyViewModel by activityViewModels()
-    private lateinit var service: Service
+    private lateinit var kService: keyboardService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        service = Service()
+        kService = keyboardService()
 
         val view =  inflater.inflate(R.layout.fragment_keyboard, container, false)
 
@@ -47,17 +47,17 @@ class KeyboardFragment : Fragment(), View.OnClickListener {
                     if (viewModel.value.value?.last() == '.') {
                         viewModel.dot = viewModel.dot.xor(true) //change boolean value
                     }
-                    service.delClick(viewModel.value)
+                    kService.delClick(viewModel.value)
                 }
             }
             R.id.buttonDot -> {
                 if (!viewModel.dot) {
-                    service.dotClick(viewModel.value)
+                    kService.dotClick(viewModel.value)
                     viewModel.dot = viewModel.dot.xor(true) //change boolean value
                 }
             }
             else -> {
-                service.numClick(viewModel.value, button.text.toString())
+                kService.numClick(viewModel.value, button.text.toString())
             }
         }
     }
