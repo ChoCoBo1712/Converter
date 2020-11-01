@@ -3,6 +3,28 @@
     <string name="length">Length</string>
     <string name="volume">Volume</string>
     <string name="weight">Weight</string>
+    <string-array name="length">
+        <item>Meter</item>
+        <item>Inch</item>
+        <item>Foot</item>
+        <item>Yard</item>
+        <item>Mile</item>
+    </string-array>
+    <string-array name="weight">
+        <item>Kilogram</item>
+        <item>Grain</item>
+        <item>Dram</item>
+        <item>Ounce</item>
+        <item>Pound</item>
+    </string-array>
+    <string-array name="volume">
+        <item>Liter</item>
+        <item>Cup</item>
+        <item>Pint</item>
+        <item>Quart</item>
+        <item>Gallon</item>
+        <item>Barrel</item>
+    </string-array>
     <string name="del">Del</string>
     <string name="dot">.</string>
     <string name="_0">0</string>
