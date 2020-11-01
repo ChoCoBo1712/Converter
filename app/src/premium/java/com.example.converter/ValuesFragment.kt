@@ -10,8 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_values.*
 
 
 class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -53,6 +51,9 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
             spinnerLeft.adapter = adapter
             spinnerRight.adapter = adapter
 
+            spinnerLeft.setSelection(adapter.getPosition(viewModel.item.value))
+            spinnerRight.setSelection(adapter.getPosition(viewModel.convertedItem.value))
+
             convert()
         })
 
@@ -62,8 +63,9 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
         spinnerLeft.adapter = adapter
         spinnerRight.adapter = adapter
 
-        spinnerLeft.setSelection(adapter.getPosition(viewModel.item.value))
-        spinnerRight.setSelection(adapter.getPosition(viewModel.convertedItem.value))
+        editTextLeft.setText(viewModel.value.value)
+        editTextRight.setText(viewModel.convertedValue.value)
+
 
         spinnerLeft.onItemSelectedListener = this
         spinnerRight.onItemSelectedListener = this
@@ -74,7 +76,6 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
         viewModel.item.value = spinnerLeft.selectedItem.toString()
         viewModel.convertedItem.value = spinnerRight.selectedItem.toString()
-
         convert()
     }
 

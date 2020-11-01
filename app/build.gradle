@@ -48,6 +48,29 @@ android {
         }
     }
 
+    flavorDimensions "version"
+    productFlavors {
+        free {
+            dimension "version"
+            applicationId "com.example.converter.free"
+            versionName getVersionName()
+        }
+        premium {
+            dimension "version"
+            applicationId "com.example.converter.premium"
+            versionName getVersionName() + "-premium"
+        }
+    }
+
+    sourceSets {
+        free {
+            java.srcDirs("src/main/java", "src/free/java")
+        }
+        premium {
+            java.srcDirs("src/premium/java", "src/main/java")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8

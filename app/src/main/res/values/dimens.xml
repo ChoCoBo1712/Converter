@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="keyboardRowHeight">100dp</dimen>
+    <dimen name="keyboardRowHeight">75dp</dimen>
     <dimen name="keyboardTextSize">30sp</dimen>
 </resources>

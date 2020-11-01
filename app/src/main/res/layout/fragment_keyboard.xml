@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".KeyboardFragment"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".KeyboardFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +17,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_1"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/button2"
@@ -27,8 +27,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_2"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/button3"
@@ -37,8 +37,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_3"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
     </LinearLayout>
 
@@ -53,8 +53,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_4"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/button5"
@@ -63,8 +63,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_5"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/button6"
@@ -73,8 +73,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_6"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
     </LinearLayout>
 
@@ -89,8 +89,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_7"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/button8"
@@ -99,8 +99,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_8"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/button9"
@@ -109,8 +109,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_9"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
     </LinearLayout>
 
@@ -125,8 +125,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/_0"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/buttonDot"
@@ -135,8 +135,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/dot"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
         <Button
             android:id="@+id/buttonDelete"
@@ -145,8 +145,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/del"
-            android:textSize="@dimen/keyboardTextSize"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/keyboardTextSize" />
 
     </LinearLayout>
 
