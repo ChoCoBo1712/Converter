@@ -1,5 +1,8 @@
 package com.example.converter
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +18,9 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
 
     private val viewModel: MyViewModel by activityViewModels()
     private lateinit var service: Service
+    private lateinit var spinnerLeft: Spinner
+    private lateinit var spinnerRight: Spinner
+    private lateinit var clipboard: ClipboardManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +29,14 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
         service = Service()
         val view =  inflater.inflate(R.layout.fragment_values, container, false)
 
+        clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val editTextLeft = view.findViewById<EditText>(R.id.editTextLeft)
         val editTextRight = view.findViewById<EditText>(R.id.editTextRight)
-        val spinnerLeft = view.findViewById<Spinner>(R.id.spinnerLeft)
-        val spinnerRight = view.findViewById<Spinner>(R.id.spinnerRight)
+        editTextLeft.setOnClickListener(::onEditTextClick)
+        editTextRight.setOnClickListener(::onEditTextClick)
+        spinnerLeft = view.findViewById<Spinner>(R.id.spinnerLeft)
+        spinnerRight = view.findViewById<Spinner>(R.id.spinnerRight)
+        view.findViewById<ImageButton>(R.id.imageButton).setOnClickListener(this)
 
         viewModel.value.observe(viewLifecycleOwner, { newValue ->
             editTextLeft.setText(newValue)
@@ -85,18 +95,24 @@ class ValuesFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnCl
     }
 
     override fun onClick(v: View?) {
-        val button = v as Button
+        val button = v as ImageButton
 
         when(button.id) {
             R.id.imageButton -> {
                 viewModel.value.value = viewModel.convertedValue.value.also {
                     viewModel.convertedValue.value = viewModel.value.value
                 }
-                viewModel.item.value = viewModel.convertedItem.value.also {
-                    viewModel.convertedItem.value = viewModel.item.value
+                val temp = spinnerLeft.selectedItemPosition
+                spinnerLeft.setSelection(spinnerRight.selectedItemPosition).also {
+                    spinnerRight.setSelection(temp)
                 }
             }
         }
+    }
+
+    private fun onEditTextClick(v: View?) {
+        clipboard.setPrimaryClip(ClipData.newPlainText("Value", (v as EditText).text))
+        Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
     }
 
     fun changeList(id: Int) {
