@@ -7,7 +7,8 @@ class MyViewModel: ViewModel() {
     var value: MutableLiveData<String> = MutableLiveData("")
     var convertedValue: MutableLiveData<String> = MutableLiveData("")
     var dot: Boolean = false
-    var list: MutableLiveData<Int> = MutableLiveData(1)
-    var item: MutableLiveData<Int> = MutableLiveData(1)
+    var list: MutableLiveData<Int> = MutableLiveData(R.array.length)
+    var item: MutableLiveData<String> = MutableLiveData("")
+    var convertedItem: MutableLiveData<String> = MutableLiveData("")
 
 }
