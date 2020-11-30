@@ -2,15 +2,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-def getVersionCode = { ->
-    def stdout = new ByteArrayOutputStream()
+def getVersionCode = { name ->
+    Integer code = 0
+    name = name.replaceAll('v', '')
+    String[] components = name.split("\\.")
+    Integer i = components.size() - 1
 
-    exec {
-        commandLine 'git', 'tag', '--list'
-        standardOutput = stdout
+    for (component in components) {
+        code += Math.pow(1000, i) * (component as Integer)
+        i--;
     }
 
-    return stdout.toString().split("\n").size()
+    return code
 }
 
 def getVersionName = { ->
@@ -35,8 +38,8 @@ android {
         applicationId "com.example.converter"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode getVersionCode()
         versionName getVersionName()
+        versionCode getVersionCode(versionName)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
